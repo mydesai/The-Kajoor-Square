@@ -13,6 +13,7 @@
         // =======================================================
         // 🔑 EDITABLE CONTENT CONFIGURATION (START)
         // Kept consistent across all files for easy management
+        // NOTE: Added 'extra_details' field for the new product modal view.
         // =======================================================
         const config = {
             brand: {
@@ -25,14 +26,35 @@
                     href: "https://maps.app.goo.gl/CG5K6uD8TDtB5QZ78" 
                 }
             },
-            // Product list must be identical to the one in cart.html for data consistency
+            // === INDIVIDUAL PRODUCT LISTINGS ===
             products: [
-                { id: 1, name: "Majestic Medjool", unit_price: 49.99, description: "Large, soft, and naturally sweet. The King of Dates, perfect for a luxurious snack.", image_url: "https://www.secretosdelsur.com/wp-content/uploads/2024/05/dates.jpg" },
-                { id: 2, name: "Amber Delight", unit_price: 39.99, description: "A tender, golden variety with a delicate, syrupy flavour. Excellent for baking.", image_url: "https://cleangreensimple.com/wp-content/uploads/guide-to-dried-dates.jpg" },
-                { id: 3, name: "Golden Crunch", unit_price: 59.99, description: "A rare, crisp-shelled date with a nutty caramel centre. A unique texture experience.", image_url: "https://img.lb.wbmdstatic.com/vim/live/webmd/consumer_assets/site_images/article_thumbnails/SEEDs/1800x1200-medjool-dates-are-there-health-benefits-seed.jpg?resize=750px:*&output-quality=75" },
-                { id: 4, name: "Royal Khalas", unit_price: 35.00, description: "Small, dark, and highly prized for their deep, rich molasses flavour. A daily favourite.", image_url: "https://theveganatlas.com/wp-content/uploads/2022/03/Dried-dates-in-a-wooden-bowl.jpg" },
-                { id: 5, name: "Fard Dates", unit_price: 32.50, description: "Uniformly brown, small in size, and boasting a semi-sweet, pleasant taste. Great value.", image_url: "https://i.ebayimg.com/images/g/h5MAAOSw3FxhD-G7/s-l1600.jpg" },
-                { id: 6, name: "Sukkari Premium", unit_price: 45.00, description: "The 'Sugary' date, known for its moist texture and sweet burst. Melts in your mouth.", image_url: "https://cdn.shopify.com/s/files/1/0252/6552/6334/files/Sukkari-Dates.jpg?v=1686903277" }
+                { 
+                    id: 1, 
+                    name: "Majestic Medjool", 
+                    unit_price: 49.99, 
+                    description: "Large, soft, and naturally sweet. The King of Dates, perfect for a luxurious snack.", 
+                    extra_details: "These are hand-picked from the finest groves in Jordan, offering a rich, caramel-like flavour and a satisfyingly chewy texture. They are non-GMO, naturally high in fiber, and packed with essential minerals like potassium and magnesium. Best stored in a cool, dry place.",
+                    image_url: "https://www.secretosdelsur.com/wp-content/uploads/2024/05/dates.jpg" 
+                },
+                { 
+                    id: 2, 
+                    name: "Amber Delight", 
+                    unit_price: 39.99, 
+                    description: "A tender, golden variety with a delicate, syrupy flavour. Excellent for baking.", 
+                    extra_details: "Known for their golden hue and semi-dry texture, the Amber Delight is exceptionally versatile. They come from the Al-Kharj region and are sun-dried to lock in their natural sweetness. A fantastic alternative to refined sugar in recipes.",
+                    image_url: "https://cleangreensimple.com/wp-content/uploads/guide-to-dried-dates.jpg" 
+                },
+                { 
+                    id: 3, 
+                    name: "Black Pearl", 
+                    unit_price: 45.00, 
+                    description: "Rich, dark, and intensely flavourful, reminiscent of chocolate and coffee.", 
+                    extra_details: "The Black Pearl variety is a rare, dark date with deep molasses undertones. They are highly sought after for their robust flavour profile, perfect for pairing with cheese or a post-dinner treat. They are grown organically and air-shipped to maintain peak freshness.",
+                    image_url: "https://t3.ftcdn.net/jpg/02/76/75/71/360_F_276757186_K2wS8oG8HhU3cR6k0vQpL8o74712Yj4A.jpg" 
+                },
+                { id: 4, name: "Desert Honey", unit_price: 55.50, description: "Our premium line of plump, buttery dates with a distinct honeyed finish.", extra_details: "A truly luxurious experience. Each date is plump, moist, and boasts a natural honey flavour. These are graded as our highest quality dates, perfect for special occasions or gifting. Hand-sorted multiple times for guaranteed perfection.", image_url: "https://st4.depositphotos.com/2645851/20036/i/450/depositphotos_200361546-stock-photo-dried-date-fruits-isolated-on.jpg" },
+                { id: 5, name: "Sunrise Safawi", unit_price: 35.00, description: "A balanced taste, neither too sweet nor too firm, ideal for everyday enjoyment.", extra_details: "The Safawi date is a staple. It offers great nutritional value and a balanced texture—slightly chewy but smooth. Ideal for inclusion in school lunchboxes or for a quick energy boost during the day. Known for long shelf life.", image_url: "https://c4.wallpaperflare.com/wallpaper/555/442/688/date-palm-fruits-dates-still-life-wallpaper-preview.jpg" },
+                { id: 6, name: "Omani Fardh", unit_price: 41.99, description: "Medium-sized and glossy, prized for their rich, dark mahogany colour and nutty flavour.", extra_details: "Hailing from Oman, these dates have a unique, subtly nutty taste and a beautiful dark finish. They hold up well in cooking and are often used in traditional Middle Eastern desserts. High in iron.", image_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9k-1y82x2JjQ42yB-4gY_e15O8wF8yFfDLA&s" }
             ],
             footer: {
                 shop: [
@@ -76,111 +98,191 @@
         };
 
         // =======================================================
-        // 🛒 CART MANAGEMENT LOGIC (REPLICATED FOR ADDING)
+        // 🛒 CART LOGIC (SHARED)
         // =======================================================
-        const STORAGE_KEY = 'kajoor_cart';
-        
-        function getCart() {
-            try {
-                const cartString = localStorage.getItem(STORAGE_KEY);
-                return cartString ? JSON.parse(cartString) : [];
-            } catch (e) {
-                console.error("Could not load cart from storage:", e);
-                return [];
-            }
-        }
 
-        function saveCart(cart) {
-            localStorage.setItem(STORAGE_KEY, JSON.stringify(cart));
-            // In a real app, you might update the cart icon count here
+        /**
+         * Safely parses the cart state from storage.
+         * @returns {Object} The cart object (id: quantity).
+         */
+        function getCart() {
+            const cartString = localStorage.getItem('date_cart');
+            try {
+                return cartString ? JSON.parse(cartString) : {};
+            } catch (e) {
+                console.error("Error parsing cart data:", e);
+                return {};
+            }
         }
 
         /**
-         * Adds a product to the cart or increments its quantity if it already exists.
-         * @param {number} id - Product ID
-         * @param {string} name - Product Name
-         * @param {number} price - Unit Price
-         * @param {string} image - Image URL
+         * Saves the cart state to storage.
+         * @param {Object} cart The cart object to save.
          */
-        window.addToCart = function(id, name, price, image) {
-            let cart = getCart();
-            let itemIndex = cart.findIndex(item => item.id === id);
+        function saveCart(cart) {
+            localStorage.setItem('date_cart', JSON.stringify(cart));
+            updateCartCount();
+        }
 
-            if (itemIndex > -1) {
-                // Item exists, increment quantity
-                cart[itemIndex].quantity += 1;
-            } else {
-                // Item does not exist, add new item with quantity 1
-                cart.push({ 
-                    id: id, 
-                    name: name, 
-                    price: price, 
-                    image: image, 
-                    quantity: 1 
-                });
-            }
-            saveCart(cart);
-
-            // Provide visual feedback to the user on the button itself
-            const cartButton = document.getElementById(`add-to-cart-${id}`);
-            if (cartButton) {
-                const originalText = cartButton.textContent;
-                const originalClasses = cartButton.className;
-
-                cartButton.textContent = 'Added! View Cart →';
-                cartButton.className = originalClasses.replace('bg-date-black', 'bg-green-500').replace('hover:bg-date-gold', 'hover:bg-green-600');
-                
-                setTimeout(() => {
-                    cartButton.textContent = originalText;
-                    cartButton.className = originalClasses;
-                }, 1500);
+        /**
+         * Updates the cart count displayed in the header.
+         */
+        function updateCartCount() {
+            const cart = getCart();
+            const count = Object.values(cart).reduce((sum, quantity) => sum + quantity, 0);
+            const badge = document.getElementById('cart-badge');
+            if (badge) {
+                badge.textContent = count > 99 ? '99+' : count;
+                badge.classList.toggle('hidden', count === 0);
             }
         }
+
+        /**
+         * Adds an item to the cart and prevents event propagation.
+         * @param {number} id - Product ID.
+         * @param {Event} event - The click event.
+         */
+        window.addToCart = function(id, event) {
+            // Stop the click event from bubbling up to the parent element (which now opens the modal)
+            if (event) {
+                event.stopPropagation();
+                event.preventDefault();
+            }
+
+            const cart = getCart();
+            const productId = String(id);
+            cart[productId] = (cart[productId] || 0) + 1;
+            saveCart(cart);
+
+            // Give visual feedback
+            showToast(`Added 1 unit of ${getProductById(id).name} to cart!`);
+        };
         
-        // =======================================================
-        // ⚙️ RENDERING LOGIC
-        // =======================================================
+        /**
+         * Displays a temporary success message (Toast).
+         * @param {string} message - The message to display.
+         */
+        function showToast(message) {
+            const toast = document.getElementById('toast-message');
+            if (!toast) return;
 
+            toast.textContent = message;
+            toast.classList.remove('opacity-0', 'scale-95', 'hidden');
+            toast.classList.add('opacity-100', 'scale-100');
+
+            setTimeout(() => {
+                toast.classList.remove('opacity-100', 'scale-100');
+                toast.classList.add('opacity-0', 'scale-95');
+            }, 3000); // Hide after 3 seconds
+        }
+
+        // =======================================================
+        // 🖼️ PRODUCT MODAL LOGIC (NEW)
+        // =======================================================
+        
+        /**
+         * Finds a product by its ID.
+         * @param {number} id - The product ID.
+         * @returns {Object | undefined} The product object.
+         */
+        function getProductById(id) {
+            // Ensure ID is treated as a number
+            return config.products.find(p => p.id === Number(id));
+        }
+
+        /**
+         * Opens the detailed product modal.
+         * @param {number} id - The product ID to display.
+         */
+        window.openProductDetails = function(id) {
+            const product = getProductById(id);
+            if (!product) return;
+
+            const modalContent = document.getElementById('modal-content-container');
+            if (!modalContent) return;
+
+            // HTML for the modal content
+            modalContent.innerHTML = `
+                <div class="md:flex md:space-x-8">
+                    <!-- Image Column -->
+                    <div class="md:w-1/2 mb-6 md:mb-0">
+                        <img src="${product.image_url}" alt="${product.name}" class="w-full h-96 object-cover rounded-xl shadow-xl">
+                    </div>
+                    
+                    <!-- Details Column -->
+                    <div class="md:w-1/2">
+                        <h1 class="font-display text-4xl font-bold text-date-black mb-2">${product.name}</h1>
+                        <p class="text-3xl font-semibold text-date-gold mb-4">R ${product.unit_price.toFixed(2)}</p>
+                        
+                        <!-- Short Description -->
+                        <p class="text-lg text-gray-700 mb-6 border-b pb-4">${product.description}</p>
+                        
+                        <!-- Expanded Details (New "More Mics") -->
+                        <h2 class="font-semibold text-xl text-date-black mb-2">The Full Story</h2>
+                        <p class="text-gray-600 mb-8">${product.extra_details}</p>
+                        
+                        <!-- Add to Cart Button for Modal -->
+                        <button onclick="addToCart(${product.id}, event); closeProductDetails()" 
+                                class="w-full py-3 bg-date-gold text-date-black text-xl font-bold rounded-full shadow-lg hover:bg-date-black hover:text-white transition duration-300 transform active:scale-95 flex items-center justify-center space-x-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"></path><path d="M5 12h14"></path></svg>
+                            <span>Add to Cart</span>
+                        </button>
+                    </div>
+                </div>
+            `;
+
+            // Display the modal and block scrolling
+            document.getElementById('product-modal').classList.remove('opacity-0', 'invisible');
+            document.getElementById('modal-dialog').classList.remove('opacity-0', 'scale-90');
+            document.body.classList.add('overflow-hidden');
+        };
+
+        /**
+         * Closes the detailed product modal.
+         */
+        window.closeProductDetails = function() {
+            // Start closing transition
+            document.getElementById('product-modal').classList.add('opacity-0', 'invisible');
+            document.getElementById('modal-dialog').classList.add('opacity-0', 'scale-90');
+            document.body.classList.remove('overflow-hidden');
+        };
+
+        // =======================================================
+        // 🔄 RENDERING & INIT FUNCTIONS
+        // =======================================================
+        
+        /**
+         * Renders the product cards into the grid.
+         */
         function renderProducts() {
-            const container = document.getElementById('products-grid');
+            const container = document.getElementById('product-grid');
             if (!container) return;
-
+            
             container.innerHTML = config.products.map(product => `
-                <div class="bg-white rounded-xl shadow-xl overflow-hidden transform transition duration-500 hover:scale-[1.02] hover:shadow-2xl border-t-8 border-date-gold/70">
-                    <div class="h-64 overflow-hidden relative">
-                        <img 
-                            src="${product.image_url}" 
-                            alt="${product.name}" 
-                            class="w-full h-full object-cover transition duration-500 hover:opacity-90"
-                            onerror="this.onerror=null; this.src='https://placehold.co/600x400/1E1E1E/DAA520?text=${product.name.replace(/\s/g, '+')}';"
-                        >
-                        <div class="absolute top-4 right-4 bg-date-gold text-date-black text-sm font-bold px-3 py-1 rounded-full shadow-md">
-                            R${product.unit_price.toFixed(2)}
+                <!-- Entire card is clickable to open details modal -->
+                <div class="bg-white rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:scale-[1.02] group cursor-pointer"
+                     onclick="openProductDetails(${product.id})">
+                    
+                    <div class="relative overflow-hidden rounded-t-xl h-64">
+                        <img src="${product.image_url}" alt="${product.name}" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
+                        <div class="absolute top-0 right-0 bg-date-gold/90 text-date-black font-bold p-2 px-4 rounded-bl-xl shadow-md text-xl">
+                            R ${product.unit_price.toFixed(2)}
                         </div>
                     </div>
                     
-                    <div class="p-6 flex flex-col justify-between h-auto">
-                        <div>
-                            <h3 class="font-display text-3xl font-extrabold text-date-black mb-2">${product.name}</h3>
-                            <p class="text-gray-600 text-sm mb-4">${product.description}</p>
-                        </div>
-
-                        <!-- ADD TO CART BUTTON IS HERE -->
-                        <button 
-                            id="add-to-cart-${product.id}"
-                            onclick="addToCart(${product.id}, '${product.name.replace(/'/g, "\\'")}', ${product.unit_price}, '${product.image_url}')"
-                            class="w-full mt-4 py-3 bg-date-black text-white font-bold rounded-full transition duration-300 hover:bg-date-gold hover:text-date-black shadow-lg"
-                        >
-                            Add to Cart
+                    <div class="p-6">
+                        <h3 class="font-display text-2xl font-bold text-date-black mb-2">${product.name}</h3>
+                        <p class="text-gray-600 mb-4 h-12 overflow-hidden text-ellipsis">${product.description}</p>
+                        
+                        <!-- Add to Cart Button -->
+                        <button onclick="addToCart(${product.id}, event)" 
+                                class="w-full py-3 bg-date-black text-white font-semibold rounded-full hover:bg-date-gold hover:text-date-black transition duration-300 transform active:scale-95 shadow-md">
+                            Add to Cart (1 unit)
                         </button>
                     </div>
                 </div>
             `).join('');
         }
-        
-        // =======================================================
-        // ⚙️ INITIALIZATION & SHARED HEADER/FOOTER FUNCTIONS
-        // =======================================================
 
         // Helper functions for rendering header/footer
         function renderListLinks(containerId, links) {
@@ -200,7 +302,7 @@
                 </a>`
             ).join('');
         }
-        
+
         function renderContent() {
             // Header Logo
             const brandLogo = document.getElementById('brand-logo');
@@ -208,12 +310,13 @@
                 brandLogo.innerHTML = `<span class="text-date-gold">${config.brand.gold_part}</span> ${config.brand.black_part}`;
             }
 
-            // Navigation Links
+            // Navigation Links (Updated for consistency)
             const navLinks = `
                 <a href="index.html" onclick="closeMobileMenu()" class="text-date-black hover:text-date-gold transition duration-200">Home</a>
                 <a href="collection.html" onclick="closeMobileMenu()" class="text-date-gold font-bold transition duration-200">Collection</a>
                 <a href="gifting.html" onclick="closeMobileMenu()" class="text-date-black hover:text-date-gold transition duration-200">Gifting</a>
                 <a href="about.html" onclick="closeMobileMenu()" class="text-date-black hover:text-date-gold transition duration-200">Our Story</a>
+                <a href="bulk.html" onclick="closeMobileMenu()" class="text-date-black hover:text-date-gold transition duration-200">Wholesale</a>
                 <a href="cart.html" onclick="closeMobileMenu()" class="text-date-black hover:text-date-gold transition duration-200">Cart</a>
             `;
             
@@ -239,8 +342,9 @@
             renderListLinks('footer-support-links', config.footer.support);
             renderSocialLinks('footer-social-links', config.footer.social);
             
-            // Call product rendering
+            // Render Products and update cart count
             renderProducts();
+            updateCartCount();
         }
 
         // === Mobile Menu Logic ===
@@ -271,9 +375,24 @@
         ::-webkit-scrollbar-track { background: #f1f1f1; }
         ::-webkit-scrollbar-thumb { background: #DAA520; border-radius: 4px; }
         ::-webkit-scrollbar-thumb:hover { background: #a8860c; }
+        
+        /* Modal Backdrop Styling */
+        #product-modal {
+            transition: opacity 0.3s ease-out;
+            z-index: 50; /* Ensure it's above everything */
+        }
+        /* Modal Dialog Styling for scale transition */
+        #modal-dialog {
+            transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+        }
     </style>
 </head>
 <body class="bg-date-black/5 text-date-black font-sans antialiased min-h-screen flex flex-col">
+
+    <!-- Toast Message (Non-blocking alert) -->
+    <div id="toast-message" class="fixed bottom-6 right-6 p-4 bg-date-black text-white font-semibold rounded-lg shadow-xl transition-all duration-500 transform opacity-0 scale-95 hidden z-50">
+        <!-- Message content injected by showToast() -->
+    </div>
 
     <!-- Mobile Menu Overlay -->
     <div id="mobile-menu" class="hidden fixed inset-0 z-50 bg-date-black/95 backdrop-blur-md">
@@ -309,6 +428,8 @@
                         <line x1="3" y1="6" x2="21" y2="6"></line>
                         <path d="M16 10a4 4 0 0 1-8 0"></path>
                     </svg>
+                    <!-- Cart Badge -->
+                    <span id="cart-badge" class="absolute top-1 right-1 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white transform translate-x-1/2 -translate-y-1/2 bg-date-gold rounded-full hidden">0</span>
                 </a>
                 
                 <!-- Mobile Menu Button (Hamburger) -->
@@ -322,18 +443,41 @@
 
     <main class="flex-grow py-12 md:py-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h1 class="font-display text-5xl font-extrabold text-date-black mb-4 text-center">
-                Our <span class="text-date-gold">Exclusive Collection</span>
-            </h1>
-            <p class="text-xl text-gray-600 mb-12 text-center max-w-3xl mx-auto">
-                Discover the finest selection of dates, hand-picked and air-shipped to ensure unparalleled freshness and quality.
-            </p>
+            
+            <header class="text-center mb-12">
+                <h1 class="font-display text-6xl font-extrabold text-date-black mb-4">
+                    The Exclusive Date Collection
+                </h1>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Explore our hand-selected varieties of premium dates from around the world. Each one is a promise of quality and exceptional taste.
+                </p>
+            </header>
 
-            <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-8">
-                <!-- Products will be injected here by JavaScript -->
+            <!-- Product Grid -->
+            <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+                <!-- Products dynamically rendered here -->
             </div>
+
         </div>
     </main>
+
+    <!-- Product Details Modal (Overlay) -->
+    <div id="product-modal" class="fixed inset-0 bg-date-black/70 backdrop-blur-sm flex justify-center items-center p-4 opacity-0 invisible transition duration-300 z-50" onclick="closeProductDetails()">
+        <div id="modal-dialog" class="bg-white rounded-2xl shadow-2xl w-full max-w-5xl max-h-[90vh] overflow-y-auto p-6 md:p-10 transform scale-90 opacity-0 transition duration-300" onclick="event.stopPropagation()">
+            
+            <!-- Close Button -->
+            <button onclick="closeProductDetails()" class="absolute top-4 right-4 text-gray-500 hover:text-date-black transition" aria-label="Close Product Details">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+
+            <!-- Modal Content Injected Here -->
+            <div id="modal-content-container" class="mt-4">
+                <!-- Product details will be dynamically loaded here by JavaScript -->
+                <p class="text-center text-gray-500">Loading product details...</p>
+            </div>
+        </div>
+    </div>
+
 
     <!-- Footer -->
     <footer class="bg-date-black text-white py-12 mt-auto border-t-4 border-date-gold">
