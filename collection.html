@@ -3,15 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>THE KAJOOR SQUARE CO. | Exclusive Premium Dates</title>
-    <!-- Load Inter Font -->
+    <title>THE KAJOOR SQUARE CO. | Date Collection</title>
+    <!-- Load Inter and Playfair Display Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
     <!-- Load Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    
     <script>
         // =======================================================
         // 🔑 EDITABLE CONTENT CONFIGURATION (START)
-        // This is the ONLY section you need to edit to change content.
+        // Kept consistent across all files for easy management
+        // NOTE: Added 'extra_details' field for the new product modal view.
         // =======================================================
         const config = {
             brand: {
@@ -24,111 +26,60 @@
                     href: "https://maps.app.goo.gl/CG5K6uD8TDtB5QZ78" 
                 }
             },
-            hero: {
-                title: "THE GOLD STANDARD",
-                subtitle: "An unbroken lineage of pure indulgence.",
-                cta_text: "Discover The Collection"
-            },
+            // === INDIVIDUAL PRODUCT LISTINGS ===
             products: [
-                // === INDIVIDUAL PRODUCT LISTINGS ===
-                {
-                    id: 1,
-                    name: "Majestic Medjool",
-                    unit_price: 49.99,
-                    description: "The crown jewel of dates. Possessing a deep, intense sweetness, velvety texture, and lingering notes of dark caramel and cocoa.",
-                    image_url: "https://www.secretosdelsur.com/wp-content/uploads/2024/05/dates.jpg"
+                { 
+                    id: 1, 
+                    name: "Majestic Medjool", 
+                    unit_price: 49.99, 
+                    description: "Large, soft, and naturally sweet. The King of Dates, perfect for a luxurious snack.", 
+                    extra_details: "These are hand-picked from the finest groves in Jordan, offering a rich, caramel-like flavour and a satisfyingly chewy texture. They are non-GMO, naturally high in fiber, and packed with essential minerals like potassium and magnesium. Best stored in a cool, dry place.",
+                    image_url: "https://www.secretosdelsur.com/wp-content/uploads/2024/05/dates.jpg" 
                 },
-                {
-                    id: 2,
-                    name: "Amber Delight",
-                    unit_price: 39.99,
-                    description: "A luminous, semi-dry treasure. Offering subtle notes of toasted almond and wildflower honey, with a perfectly firm finish.",
-                    image_url: "https://cleangreensimple.com/wp-content/uploads/guide-to-dried-dates.jpg"
+                { 
+                    id: 2, 
+                    name: "Amber Delight", 
+                    unit_price: 39.99, 
+                    description: "A tender, golden variety with a delicate, syrupy flavour. Excellent for baking.", 
+                    extra_details: "Known for their golden hue and semi-dry texture, the Amber Delight is exceptionally versatile. They come from the Al-Kharj region and are sun-dried to lock in their natural sweetness. A fantastic alternative to refined sugar in recipes.",
+                    image_url: "https://cleangreensimple.com/wp-content/uploads/guide-to-dried-dates.jpg" 
                 },
-                {
-                    id: 3,
-                    name: "Golden Crunch",
-                    unit_price: 59.99,
-                    description: "A rare, exquisite treat. Harvested early for its unique, texture and a fresh, complex flavour reminiscent of spiced pear and aged butterscotch.",
-                    image_url: "https://img.lb.wbmdstatic.com/vim/live/webmd/consumer_assets/site_images/article_thumbnails/SEEDs/1800x1200-medjool-dates-are-there-health-benefits-seed.jpg?resize=750px:*&output-quality=75"
+                { 
+                    id: 3, 
+                    name: "Black Pearl", 
+                    unit_price: 45.00, 
+                    description: "Rich, dark, and intensely flavourful, reminiscent of chocolate and coffee.", 
+                    extra_details: "The Black Pearl variety is a rare, dark date with deep molasses undertones. They are highly sought after for their robust flavour profile, perfect for pairing with cheese or a post-dinner treat. They are grown organically and air-shipped to maintain peak freshness.",
+                    image_url: "https://t3.ftcdn.net/jpg/02/76/75/71/360_F_276757186_K2wS8oG8HhU3cR6k0vQpL8o74712Yj4A.jpg" 
                 },
-                {
-                    id: 4,
-                    name: "Royal Khalas",
-                    unit_price: 35.00,
-                    description: "A popular choice known for its tender texture and mild, butterscotch flavor. A perfect daily indulgence.",
-                    image_url: "https://theveganatlas.com/wp-content/uploads/2022/03/Dried-dates-in-a-wooden-bowl.jpg"
-                }
-
+                { id: 4, name: "Desert Honey", unit_price: 55.50, description: "Our premium line of plump, buttery dates with a distinct honeyed finish.", extra_details: "A truly luxurious experience. Each date is plump, moist, and boasts a natural honey flavour. These are graded as our highest quality dates, perfect for special occasions or gifting. Hand-sorted multiple times for guaranteed perfection.", image_url: "https://st4.depositphotos.com/2645851/20036/i/450/depositphotos_200361546-stock-photo-dried-date-fruits-isolated-on.jpg" },
+                { id: 5, name: "Sunrise Safawi", unit_price: 35.00, description: "A balanced taste, neither too sweet nor too firm, ideal for everyday enjoyment.", extra_details: "The Safawi date is a staple. It offers great nutritional value and a balanced texture—slightly chewy but smooth. Ideal for inclusion in school lunchboxes or for a quick energy boost during the day. Known for long shelf life.", image_url: "https://c4.wallpaperflare.com/wallpaper/555/442/688/date-palm-fruits-dates-still-life-wallpaper-preview.jpg" },
+                { id: 6, name: "Omani Fardh", unit_price: 41.99, description: "Medium-sized and glossy, prized for their rich, dark mahogany colour and nutty flavour.", extra_details: "Hailing from Oman, these dates have a unique, subtly nutty taste and a beautiful dark finish. They hold up well in cooking and are often used in traditional Middle Eastern desserts. High in iron.", image_url: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9k-1y82x2JjQ42yB-4gY_e15O8wF8yFfDLA&s" }
             ],
-            // NOTE: Gift box prices use the original string format and are not intended for cart calculation here.
-            gift_boxes: [
-                {
-                    id: 101,
-                    name: "The Executive Selection",
-                    price: "R299.00 / Gift Box",
-                    description: "Four varieties of our most sought-after dates, elegantly presented in a bespoke, matte black wooden casing with gold foil details. Perfect for corporate gifting.",
-                    image_url: "https://www.healthifyme.com/blog/wp-content/uploads/2021/08/dates-different-types.jpg"
-                },
-                {
-                    id: 102,
-                    name: "Artisan Trio",
-                    price: "R189.00 / Gift Box",
-                    description: "A hand-picked collection of Medjool, Khalas, and Amber Delight, packed in individual silk pouches inside a luxurious, magnetic-seal box. Ideal for friends and family.",
-                    image_url: "https://cdn.shopify.com/s/files/1/0593/6318/1484/files/Dates_Packs_New_ecomm_84_600x.jpg?v=1680106394"
-                },
-                {
-                    id: 103,
-                    name: "Artisan Tri",
-                    price: "R189.00 / Gift Box",
-                    description: "A hand-picked collection of Medjool, Khalas, and Amber Delight, packed in individual silk pouches inside a luxurious, magnetic-seal box. Ideal for friends and family.",
-                    image_url: "https://cdn.shopify.com/s/files/1/0593/6318/1484/files/Dates_Packs_New_ecomm_84_600x.jpg?v=1680106394"
-                }
-            ],
-            story: {
-                heading_gold: "LEGACY",
-                heading_black: "THE ARABIAN ",
-                paragraph1: "For generations, THE KAJOOR SQUARE CO. has upheld a tradition of selecting only the finest, hand-picked dates. Our commitment ensures every piece delivers a moment of pure, uncompromised excellence. We cultivate not just fruit, but a tradition of luxury.",
-                paragraph2: "We partner exclusively with heritage orchards that practice sustainable, time-honored farming methods. This dedication to quality over volume is what truly sets our golden standard apart."
-            },
-            signup: {
-                heading: "Join Our Private Client List",
-                subtitle: "Access early harvest notifications, and limited-edition product releases reserved only for our most valued clients.",
-                placeholder: "Your Exclusive WhatsApp Number (+27...)",
-                button_text: "Join Now"
-            },
             footer: {
                 shop: [
-                    // Updated to link to collection.html
                     { text: "Full Collection", href: "collection.html" },
                     { text: "Gifting Solutions", href: "gifting.html" }, 
-                    { text: "Wholesale Inquiry", href: "bulk.html" },
-                    { text: "Cart", href: "cart.html" },
+                    { text: "Wholesale Inquiry", href: "bulk.html" } 
                 ],
                 support: [
-                    { text: " ", href: "#" },
-                    { text: " ", href: "#" },
+                    { text: "FAQ", href: "#" },
+                    { text: "Shipping & Returns", href: "#" },
                     { text: "Call", href:"tel:+27728226614"} 
                 ],
                 social: [
                     { 
-                        // Inline SVG for WhatsApp (Message Bubble)
                         icon: '<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15V9a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h4l1 3 3-3h6a2 2 0 0 0 2-2z"></path></svg>', 
                         href: "https://wa.me/27728226614?text=I%20have%20an%20inquiry%20about%20your%20premium%20dates." 
                     },
                     { 
-                        // Inline SVG for Instagram
                         icon: '<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>', 
                         href: "https://www.instagram.com/thekajoor_square_dates/" 
                     },
-                    { icon: "", href: "#" }  // Placeholder remains for a third link
+                    { icon: "", href: "#" } 
                 ]
             }
         };
-        // =======================================================
-        // 🔑 EDITABLE CONTENT CONFIGURATION (END)
-        // =======================================================
-
 
         // Customizing Tailwind to include our brand colors and fonts
         tailwind.config = {
@@ -146,277 +97,260 @@
             }
         };
 
-        // --- CART HELPER FUNCTIONS ---
-        const STORAGE_KEY = 'kajoor_cart';
-        
+        // =======================================================
+        // 🛒 CART LOGIC (SHARED)
+        // =======================================================
+
+        /**
+         * Safely parses the cart state from storage.
+         * @returns {Object} The cart object (id: quantity).
+         */
         function getCart() {
+            const cartString = localStorage.getItem('date_cart');
             try {
-                const cartString = localStorage.getItem(STORAGE_KEY);
-                return cartString ? JSON.parse(cartString) : [];
+                return cartString ? JSON.parse(cartString) : {};
             } catch (e) {
-                console.error("Could not load cart from storage:", e);
-                return [];
+                console.error("Error parsing cart data:", e);
+                return {};
             }
-        }
-
-        function saveCart(cart) {
-            localStorage.setItem(STORAGE_KEY, JSON.stringify(cart));
-        }
-
-        function findProductById(id) {
-            const product = config.products.find(p => p.id === id);
-            if (!product) return null;
-            
-            // Format price string and ensure it has necessary properties
-            return {
-                id: product.id,
-                name: product.name,
-                price: product.unit_price, // Use numerical price for cart logic
-                image: product.image_url,
-                description: product.description,
-            };
         }
 
         /**
-         * Adds an item to the local storage cart and redirects to the cart page.
+         * Saves the cart state to storage.
+         * @param {Object} cart The cart object to save.
          */
-        function addToCart(productId, quantity = 1) {
-            let cart = getCart();
-            const productData = findProductById(productId);
-
-            if (!productData) {
-                console.error("Product not found:", productId);
-                return;
-            }
-
-            let itemIndex = cart.findIndex(item => item.id === productId);
-
-            if (itemIndex > -1) {
-                // Item exists, increase quantity
-                cart[itemIndex].quantity += quantity;
-            } else {
-                // Item is new, add it
-                cart.push({
-                    id: productId,
-                    name: productData.name,
-                    price: productData.price,
-                    image: productData.image,
-                    quantity: quantity
-                });
-            }
-            
-            saveCart(cart);
-            // Redirect to the new cart page
-            window.location.href = 'cart.html';
+        function saveCart(cart) {
+            localStorage.setItem('date_cart', JSON.stringify(cart));
+            updateCartCount();
         }
 
-        // --- RENDER CONTENT FUNCTIONS ---
+        /**
+         * Updates the cart count displayed in the header.
+         */
+        function updateCartCount() {
+            const cart = getCart();
+            const count = Object.values(cart).reduce((sum, quantity) => sum + quantity, 0);
+            const badge = document.getElementById('cart-badge');
+            if (badge) {
+                badge.textContent = count > 99 ? '99+' : count;
+                badge.classList.toggle('hidden', count === 0);
+            }
+        }
 
-        // Function to dynamically insert content from the config object
-        function renderContent() {
-            // Helper function for rendering list links
-            function renderListLinks(containerId, links) {
-                const container = document.getElementById(containerId);
-                if (!container) return;
-                container.innerHTML = links.map(link => 
-                    `<li><a href="${link.href}" class="hover:text-date-gold transition">${link.text}</a></li>`
-                ).join('');
+        /**
+         * Adds an item to the cart and prevents event propagation.
+         * @param {number} id - Product ID.
+         * @param {Event} event - The click event.
+         */
+        window.addToCart = function(id, event) {
+            // Stop the click event from bubbling up to the parent element (which now opens the modal)
+            if (event) {
+                event.stopPropagation();
+                event.preventDefault();
             }
 
-            // Helper function for rendering social links (Adjusted for SVG and clean hover state)
-            function renderSocialLinks(containerId, links) {
-                const container = document.getElementById(containerId);
-                if (!container) return;
-                container.innerHTML = links.map(link => 
-                    `<a href="${link.href}" target="_blank" class="text-date-gold hover:text-white transition duration-300 p-2 rounded-full hover:bg-date-gold/20 flex items-center justify-center">
-                        ${link.icon}
-                    </a>`
-                ).join('');
-            }
+            const cart = getCart();
+            const productId = String(id);
+            cart[productId] = (cart[productId] || 0) + 1;
+            saveCart(cart);
+
+            // Give visual feedback
+            showToast(`Added 1 unit of ${getProductById(id).name} to cart!`);
+        };
+        
+        /**
+         * Displays a temporary success message (Toast).
+         * @param {string} message - The message to display.
+         */
+        function showToast(message) {
+            const toast = document.getElementById('toast-message');
+            if (!toast) return;
+
+            toast.textContent = message;
+            toast.classList.remove('opacity-0', 'scale-95', 'hidden');
+            toast.classList.add('opacity-100', 'scale-100');
+
+            setTimeout(() => {
+                toast.classList.remove('opacity-100', 'scale-100');
+                toast.classList.add('opacity-0', 'scale-95');
+            }, 3000); // Hide after 3 seconds
+        }
+
+        // =======================================================
+        // 🖼️ PRODUCT MODAL LOGIC (NEW)
+        // =======================================================
+        
+        /**
+         * Finds a product by its ID.
+         * @param {number} id - The product ID.
+         * @returns {Object | undefined} The product object.
+         */
+        function getProductById(id) {
+            // Ensure ID is treated as a number
+            return config.products.find(p => p.id === Number(id));
+        }
+
+        /**
+         * Opens the detailed product modal.
+         * @param {number} id - The product ID to display.
+         */
+        window.openProductDetails = function(id) {
+            const product = getProductById(id);
+            if (!product) return;
+
+            const modalContent = document.getElementById('modal-content-container');
+            if (!modalContent) return;
+
+            // HTML for the modal content
+            modalContent.innerHTML = `
+                <div class="md:flex md:space-x-8">
+                    <!-- Image Column -->
+                    <div class="md:w-1/2 mb-6 md:mb-0">
+                        <img src="${product.image_url}" alt="${product.name}" class="w-full h-96 object-cover rounded-xl shadow-xl">
+                    </div>
+                    
+                    <!-- Details Column -->
+                    <div class="md:w-1/2">
+                        <h1 class="font-display text-4xl font-bold text-date-black mb-2">${product.name}</h1>
+                        <p class="text-3xl font-semibold text-date-gold mb-4">R ${product.unit_price.toFixed(2)}</p>
+                        
+                        <!-- Short Description -->
+                        <p class="text-lg text-gray-700 mb-6 border-b pb-4">${product.description}</p>
+                        
+                        <!-- Expanded Details (New "More Mics") -->
+                        <h2 class="font-semibold text-xl text-date-black mb-2">The Full Story</h2>
+                        <p class="text-gray-600 mb-8">${product.extra_details}</p>
+                        
+                        <!-- Add to Cart Button for Modal -->
+                        <button onclick="addToCart(${product.id}, event); closeProductDetails()" 
+                                class="w-full py-3 bg-date-gold text-date-black text-xl font-bold rounded-full shadow-lg hover:bg-date-black hover:text-white transition duration-300 transform active:scale-95 flex items-center justify-center space-x-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"></path><path d="M5 12h14"></path></svg>
+                            <span>Add to Cart</span>
+                        </button>
+                    </div>
+                </div>
+            `;
+
+            // Display the modal and block scrolling
+            document.getElementById('product-modal').classList.remove('opacity-0', 'invisible');
+            document.getElementById('modal-dialog').classList.remove('opacity-0', 'scale-90');
+            document.body.classList.add('overflow-hidden');
+        };
+
+        /**
+         * Closes the detailed product modal.
+         */
+        window.closeProductDetails = function() {
+            // Start closing transition
+            document.getElementById('product-modal').classList.add('opacity-0', 'invisible');
+            document.getElementById('modal-dialog').classList.add('opacity-0', 'scale-90');
+            document.body.classList.remove('overflow-hidden');
+        };
+
+        // =======================================================
+        // 🔄 RENDERING & INIT FUNCTIONS
+        // =======================================================
+        
+        /**
+         * Renders the product cards into the grid.
+         */
+        function renderProducts() {
+            const container = document.getElementById('product-grid');
+            if (!container) return;
             
-            // 1. Update Header Logo
+            container.innerHTML = config.products.map(product => `
+                <!-- Entire card is clickable to open details modal -->
+                <div class="bg-white rounded-xl shadow-lg hover:shadow-2xl transition duration-300 transform hover:scale-[1.02] group cursor-pointer"
+                     onclick="openProductDetails(${product.id})">
+                    
+                    <div class="relative overflow-hidden rounded-t-xl h-64">
+                        <img src="${product.image_url}" alt="${product.name}" class="w-full h-full object-cover transition duration-500 group-hover:scale-105">
+                        <div class="absolute top-0 right-0 bg-date-gold/90 text-date-black font-bold p-2 px-4 rounded-bl-xl shadow-md text-xl">
+                            R ${product.unit_price.toFixed(2)}
+                        </div>
+                    </div>
+                    
+                    <div class="p-6">
+                        <h3 class="font-display text-2xl font-bold text-date-black mb-2">${product.name}</h3>
+                        <p class="text-gray-600 mb-4 h-12 overflow-hidden text-ellipsis">${product.description}</p>
+                        
+                        <!-- Add to Cart Button -->
+                        <button onclick="addToCart(${product.id}, event)" 
+                                class="w-full py-3 bg-date-black text-white font-semibold rounded-full hover:bg-date-gold hover:text-date-black transition duration-300 transform active:scale-95 shadow-md">
+                            Add to Cart (1 unit)
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Helper functions for rendering header/footer
+        function renderListLinks(containerId, links) {
+            const container = document.getElementById(containerId);
+            if (!container) return;
+            container.innerHTML = links.map(link => 
+                `<li><a href="${link.href}" class="hover:text-date-gold transition">${link.text}</a></li>`
+            ).join('');
+        }
+
+        function renderSocialLinks(containerId, links) {
+            const container = document.getElementById(containerId);
+            if (!container) return;
+            container.innerHTML = links.map(link => 
+                `<a href="${link.href}" target="_blank" class="text-date-gold hover:text-white transition duration-300 p-2 rounded-full hover:bg-date-gold/20 flex items-center justify-center">
+                    ${link.icon}
+                </a>`
+            ).join('');
+        }
+
+        function renderContent() {
+            // Header Logo
             const brandLogo = document.getElementById('brand-logo');
             if (brandLogo) {
                 brandLogo.innerHTML = `<span class="text-date-gold">${config.brand.gold_part}</span> ${config.brand.black_part}`;
             }
 
-            // 2. Update Header Navigation Links (Desktop and Mobile)
-            // Desktop links use text-date-black
-            const desktopNavLinks = `
-                <a href="index.html" onclick="closeMobileMenu()" class="text-date-gold font-bold">Home</a>
-                <a href="collection.html" onclick="closeMobileMenu()" class="text-date-black hover:text-date-gold transition duration-200">Collection</a>
+            // Navigation Links (Updated for consistency)
+            const navLinks = `
+                <a href="index.html" onclick="closeMobileMenu()" class="text-date-black hover:text-date-gold transition duration-200">Home</a>
+                <a href="collection.html" onclick="closeMobileMenu()" class="text-date-gold font-bold transition duration-200">Collection</a>
                 <a href="gifting.html" onclick="closeMobileMenu()" class="text-date-black hover:text-date-gold transition duration-200">Gifting</a>
                 <a href="about.html" onclick="closeMobileMenu()" class="text-date-black hover:text-date-gold transition duration-200">Our Story</a>
-                <a href="about.html" onclick="closeMobileMenu()" class="text-date-black hover:text-date-gold transition duration-200">Contact</a>
                 <a href="bulk.html" onclick="closeMobileMenu()" class="text-date-black hover:text-date-gold transition duration-200">Wholesale</a>
+                <a href="cart.html" onclick="closeMobileMenu()" class="text-date-black hover:text-date-gold transition duration-200">Cart</a>
             `;
             
-            // Mobile links must use text-white for visibility against the black overlay
-            const mobileNavLinks = `
-                <a href="index.html" onclick="closeMobileMenu()" class="text-date-gold font-bold">Home</a>
-                <a href="collection.html" onclick="closeMobileMenu()" class="text-white hover:text-date-gold transition duration-200">Collection</a>
-                <a href="gifting.html" onclick="closeMobileMenu()" class="text-white hover:text-date-gold transition duration-200">Gifting</a>
-                <a href="about.html" onclick="closeMobileMenu()" class="text-white hover:text-date-gold transition duration-200">Our Story</a>
-                <a href="about.html" onclick="closeMobileMenu()" class="text-white hover:text-date-gold transition duration-200">Contact</a>
-                <a href="bulk.html" onclick="closeMobileMenu()" class="text-white hover:text-date-gold transition duration-200">Wholesale</a>
-            `;
+            document.getElementById('main-nav').innerHTML = navLinks;
+            document.getElementById('mobile-nav').innerHTML = navLinks;
 
-            
-            const desktopNavContainer = document.getElementById('main-nav');
-            if (desktopNavContainer) {
-                desktopNavContainer.innerHTML = desktopNavLinks;
-            }
-            
-            const mobileNavContainer = document.getElementById('mobile-nav');
-            if (mobileNavContainer) {
-                mobileNavContainer.innerHTML = mobileNavLinks;
-            }
-
-
-            // 3. Update Hero Section
-            document.getElementById('hero-title').textContent = config.hero.title;
-            document.getElementById('hero-subtitle').textContent = config.hero.subtitle;
-            
-            // Set CTA link and text
-            const heroCta = document.getElementById('hero-cta');
-            heroCta.textContent = config.hero.cta_text;
-            heroCta.href = "collection.html";
-
-
-            // 4. Dynamic Product Cards Rendering (Reinstated as a horizontal slider)
-            const productGrid = document.getElementById('product-grid'); 
-            if (productGrid) {
-                // Generate HTML for all products based on the config array
-                productGrid.innerHTML = config.products.map(product => {
-                    return `
-                        <!-- Card with specific width for scrolling, flex-shrink-0, and snap-align -->
-                        <div id="product-card-${product.id}" class="date-card w-[85vw] sm:w-[50vw] md:w-[30vw] lg:w-[25vw] flex-shrink-0 snap-center bg-white rounded-xl overflow-hidden shadow-2xl shadow-date-gold/10 transition duration-300 hover:shadow-date-gold/30 group">
-                            <div class="overflow-hidden">
-                                <!-- Image source and fallback are set directly in the generated HTML -->
-                                <img 
-                                    class="date-img w-full h-72 object-cover object-center" 
-                                    src="${product.image_url}" 
-                                    alt="${product.name} Dates"
-                                    onerror="this.onerror=null; this.src='https://placehold.co/400x288/EBEBEB/DAA520?text=Date+Image';"
-                                >
-                            </div>
-                            <div class="p-6 text-center">
-                                <h3 class="product-name font-display text-3xl font-bold text-date-black mb-2">${product.name}</h3>
-                                <p class="product-price text-date-gold text-xl font-semibold mb-4">R${product.unit_price.toFixed(2)} / Box</p>
-                                <!-- Line clamp ensures descriptions don't break the slider layout -->
-                                <p class="product-description text-gray-600 mb-6 text-sm line-clamp-3">${product.description}</p>
-                                
-                                <!-- UPDATED: Button now calls addToCart and redirects to cart.html -->
-                                <button onclick="addToCart(${product.id}, 1)" class="w-full inline-block py-3 bg-date-black text-white rounded-full font-semibold transition duration-300 transform group-hover:bg-date-gold group-hover:scale-[1.02] active:scale-95">
-                                    Add to Cart
-                                </button>
-                            </div>
-                        </div>
-                    `;
-                }).join('');
-            }
-            
-            // 5. Dynamic Gift Box Rendering (Updated to be a slider)
-            const giftBoxGrid = document.getElementById('gift-box-grid'); 
-            if (giftBoxGrid) {
-                // Generate HTML for all gift boxes
-                giftBoxGrid.innerHTML = config.gift_boxes.map(box => {
-                    return `
-                        <!-- Card with specific width for scrolling, flex-shrink-0, and snap-align -->
-                        <div id="gift-box-${box.id}" class="date-card w-[85vw] sm:w-[60vw] md:w-[50vw] lg:w-[35vw] flex-shrink-0 snap-center bg-white rounded-xl overflow-hidden shadow-2xl shadow-date-black/10 transition duration-300 hover:shadow-date-gold/50 border-4 border-date-gold/0 hover:border-date-gold group">
-                            <div class="overflow-hidden">
-                                <!-- Image source and fallback -->
-                                <img 
-                                    class="date-img w-full h-80 object-cover object-center" 
-                                    src="${box.image_url}" 
-                                    alt="${box.name} Gift Box"
-                                    onerror="this.onerror=null; this.src='https://placehold.co/600x400/1E1E1E/DAA520?text=Gift+Box+Image';"
-                                >
-                            </div>
-                            <div class="p-8 text-left">
-                                <h3 class="product-name font-display text-4xl font-extrabold text-date-black mb-2">${box.name}</h3>
-                                <p class="product-price text-date-gold text-2xl font-semibold mb-4">${box.price}</p>
-                                <p class="product-description text-gray-700 mb-6 leading-relaxed line-clamp-3">${box.description}</p>
-                                <!-- UPDATED: Changed button to <a> tag and linked to gifting.html -->
-                                <a href="gifting.html" class="w-full inline-block text-center py-3 bg-date-gold text-white rounded-full font-semibold transition duration-300 transform group-hover:bg-date-black group-hover:scale-[1.02] shadow-lg">
-                                    Send a Gift
-                                </a>
-                            </div>
-                        </div>
-                    `;
-                }).join('');
-            }
-
-
-            // 6. Update Story Section
-            document.getElementById('story-heading-gold').textContent = config.story.heading_gold;
-            document.getElementById('story-heading-black').textContent = config.story.heading_black;
-            document.getElementById('story-p1').textContent = config.story.paragraph1;
-            document.getElementById('story-p2').textContent = config.story.paragraph2;
-
-            // 7. Update Signup Section
-            document.getElementById('signup-heading').textContent = config.signup.heading;
-            document.getElementById('signup-subtitle').textContent = config.signup.subtitle;
-            document.getElementById('signup-input').placeholder = config.signup.placeholder;
-            document.getElementById('signup-button').textContent = config.signup.button_text;
-
-            // 8. WhatsApp Integration Logic 
-            const signupButton = document.getElementById('signup-button');
-            const signupInput = document.getElementById('signup-input');
-
-            signupButton.onclick = function(e) {
-                e.preventDefault(); 
-                const phoneNumber = signupInput.value.replace(/[^0-9+]/g, ''); // Clean the input: keep only digits and '+'
-                
-                // Example pre-filled message (WhatsApp requires message to be URL-encoded)
-                const prefilledMessage = encodeURIComponent("ألسَّلَامُ عَلَيْكُمْ, I'm interested in receiving early harvest notifications and exclusive offers from THE KAJOOR SQUARE CO.");
-                
-                if (phoneNumber.length > 5) { // Basic validation
-                    const whatsappLink = `https://wa.me/${phoneNumber}?text=${prefilledMessage}`;
-                    window.open(whatsappLink, '_blank');
-                } else {
-                    // Show visual feedback instead of using alert()
-                    signupInput.value = ''; // Clear previous input
-                    signupInput.placeholder = "Please enter a valid number (e.g., +2772...)";
-                    signupInput.classList.add('border-red-500', 'animate-pulse');
-                    
-                    setTimeout(() => {
-                        signupInput.placeholder = config.signup.placeholder;
-                        signupInput.classList.remove('border-red-500', 'animate-pulse');
-                    }, 3000);
-                }
-            };
-
-            // 9. Update Static Footer Content
+            // Footer Content
             document.getElementById('footer-brand-name').textContent = config.brand.name;
             document.getElementById('footer-established').textContent = `Distributers of the Finest Dates since ${config.brand.established_year}.`;
             
             const footerAddress = document.getElementById('footer-address');
-            if (typeof config.brand.address === 'object' && config.brand.address !== null && config.brand.address.href) {
-                footerAddress.innerHTML = `
+            if (footerAddress) {
+                 footerAddress.innerHTML = `
                     <a href="${config.brand.address.href}" target="_blank" class="hover:text-date-gold transition duration-200">
                         ${config.brand.address.text}
                     </a>
                 `;
-            } else if (config.brand.address.text) {
-                footerAddress.textContent = config.brand.address.text;
-            } else {
-                footerAddress.textContent = config.brand.address;
             }
 
+            document.getElementById('footer-copyright').textContent = `© 2025 ${config.brand.name} All Rights Reserved.`;
 
-            document.getElementById('footer-copyright').textContent = `© 2025 ${config.brand.name} All Rights Reserved.    xCreated by: M.Y.DESAI.WORX`;
-
-            // 10. Update Footer Links
             renderListLinks('footer-shop-links', config.footer.shop);
             renderListLinks('footer-support-links', config.footer.support);
             renderSocialLinks('footer-social-links', config.footer.social);
+            
+            // Render Products and update cart count
+            renderProducts();
+            updateCartCount();
         }
 
         // === Mobile Menu Logic ===
         function openMobileMenu() {
             document.getElementById('mobile-menu').classList.remove('hidden');
-            document.body.classList.add('overflow-hidden'); // Prevent scrolling body when menu is open
+            document.body.classList.add('overflow-hidden');
         }
 
         function closeMobileMenu() {
@@ -429,7 +363,6 @@
             document.getElementById('close-menu-button').onclick = closeMobileMenu;
         }
 
-        // Run the content rendering function and menu setup once the window loads
         window.onload = function() {
             renderContent();
             setupMobileMenu();
@@ -437,90 +370,39 @@
 
     </script>
     <style>
-        /* Custom CSS for the Golden Glow effect on the title in the Hero */
-        @keyframes goldGlow {
-            0% {
-                text-shadow: 0 0 5px #DAA520, 0 0 10px rgba(218, 165, 32, 0.5);
-            }
-            50% {
-                text-shadow: 0 0 15px #DAA520, 0 0 30px rgba(218, 165, 32, 0.8);
-            }
-            100% {
-                text-shadow: 0 0 5px #DAA520, 0 0 10px rgba(218, 165, 32, 0.5);
-            }
-        }
-
-        /* Apply the animation class */
-        .animate-gold-glow {
-            animation: goldGlow 3s infinite alternate;
-        }
-
-        /* Product Card Image Hover Effect (Retaining these styles for the gift cards) */
-        .date-card:hover .date-img {
-            transform: scale(1.05);
-            transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Smooth cubic transition */
-        }
-
-        /* Base image style with subtle gold shadow */
-        .date-img {
-            transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); 
-            box-shadow: 0 10px 30px -5px rgba(218, 165, 32, 0.15); 
-        }
-
-        /* Scroll Bar Styling (Subtle Gold) */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #f1f1f1;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #DAA520;
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #a8860c;
-        }
+        /* Custom styles for gold/black theme */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #DAA520; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #a8860c; }
         
-        /* Marquee CSS */
-        .marquee {
-            animation: marquee 10s linear infinite;
+        /* Modal Backdrop Styling */
+        #product-modal {
+            transition: opacity 0.3s ease-out;
+            z-index: 50; /* Ensure it's above everything */
         }
-        @keyframes marquee {
-            0% {
-                transform: translate3d(0, 0, 0);
-            }
-            100% {
-                /* Move the text exactly half of its width (since the content is doubled) */
-                transform: translate3d(-50%, 0, 0);
-            }
-        }
-
-        /* Utility for clamping text to a specific number of lines */
-        .line-clamp-3 {
-            display: -webkit-box;
-            -webkit-line-clamp: 3;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
+        /* Modal Dialog Styling for scale transition */
+        #modal-dialog {
+            transition: opacity 0.3s ease-out, transform 0.3s ease-out;
         }
     </style>
 </head>
-<body class="bg-white text-date-black font-sans antialiased">
+<body class="bg-date-black/5 text-date-black font-sans antialiased min-h-screen flex flex-col">
+
+    <!-- Toast Message (Non-blocking alert) -->
+    <div id="toast-message" class="fixed bottom-6 right-6 p-4 bg-date-black text-white font-semibold rounded-lg shadow-xl transition-all duration-500 transform opacity-0 scale-95 hidden z-50">
+        <!-- Message content injected by showToast() -->
+    </div>
 
     <!-- Mobile Menu Overlay -->
     <div id="mobile-menu" class="hidden fixed inset-0 z-50 bg-date-black/95 backdrop-blur-md">
         <div class="flex flex-col h-full items-center justify-center space-y-8">
             <button id="close-menu-button" class="absolute top-6 right-6 text-date-gold hover:text-white transition" aria-label="Close Menu">
-                <!-- Close Icon (X) -->
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
             </button>
             <nav id="mobile-nav" class="flex flex-col space-y-6 text-3xl font-display font-bold text-white text-center">
-                <!-- Mobile Links dynamically updated in JS renderContent() step 2 -->
-                <!-- The CSS for these links is now correctly set to 'text-white' inside the JavaScript renderContent function. -->
+                <!-- Mobile Links dynamically updated in JS renderContent() -->
             </nav>
-            <a href="#" class="text-lg font-bold text-date-gold mt-10 hover:text-white transition" id="brand-logo-mobile">
-                <span class="text-date-gold">${config.brand.gold_part}</span> ${config.brand.black_part}
-            </a>
         </div>
     </div>
     
@@ -534,24 +416,24 @@
             
             <!-- Desktop Navigation -->
             <nav id="main-nav" class="hidden md:flex space-x-8 text-lg font-medium">
-                <!-- Links dynamically updated in JS renderContent() step 2 -->
+                <!-- Links dynamically updated in JS renderContent() -->
             </nav>
 
             <!-- Actions (Cart & Mobile Menu Button) -->
             <div class="flex items-center space-x-4">
-                <!-- UPDATED: Cart Icon - Links to cart.html -->
-                <a href="cart.html" class="p-2 text-date-black hover:text-date-gold transition duration-200 relative" aria-label="Shopping Cart">
-                    <!-- Shopping Bag Icon SVG -->
+                <!-- Cart Icon -->
+                <a href="cart.html" class="p-2 text-date-gold transition duration-200 relative" aria-label="Shopping Cart">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
                         <line x1="3" y1="6" x2="21" y2="6"></line>
                         <path d="M16 10a4 4 0 0 1-8 0"></path>
                     </svg>
+                    <!-- Cart Badge -->
+                    <span id="cart-badge" class="absolute top-1 right-1 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white transform translate-x-1/2 -translate-y-1/2 bg-date-gold rounded-full hidden">0</span>
                 </a>
                 
                 <!-- Mobile Menu Button (Hamburger) -->
                 <button id="menu-button" class="md:hidden text-date-black p-2 rounded-lg hover:bg-date-black/10 transition" aria-label="Open Menu">
-                    <!-- Hamburger Icon -->
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
                 </button>
             </div>
@@ -559,149 +441,53 @@
         </div>
     </header>
 
-    <main>
-        <!-- Hero Section -->
-        <section class="relative h-[80vh] flex items-center justify-center overflow-hidden border-b-4 border-date-gold/50">
-            <div class="absolute inset-0 bg-cover bg-center opacity-30" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Dates005.jpg/1200px-Dates005.jpg');"></div>
+    <main class="flex-grow py-12 md:py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             
-            <div class="z-10 text-center p-6 bg-white/80 backdrop-blur-sm rounded-xl shadow-2xl border border-date-gold/50 mx-4">
-                <h1 id="hero-title" class="font-display text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-extrabold text-date-black mb-4 uppercase tracking-tighter animate-gold-glow">
-                    <!-- Content injected by JavaScript: Scaled down for mobile -->
+            <header class="text-center mb-12">
+                <h1 class="font-display text-6xl font-extrabold text-date-black mb-4">
+                    The Exclusive Date Collection
                 </h1>
-                <p id="hero-subtitle" class="text-lg md:text-2xl text-date-black mb-8 max-w-2xl mx-auto">
-                    <!-- Content injected by JavaScript -->
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Explore our hand-selected varieties of premium dates from around the world. Each one is a promise of quality and exceptional taste.
                 </p>
-                <!-- Animated CTA Button - Links to collection.html -->
-                <a href="collection.html" id="hero-cta" class="inline-block px-10 py-3 md:px-12 md:py-4 bg-date-gold text-white text-lg md:text-xl font-bold rounded-full shadow-2xl shadow-date-gold/50 hover:bg-date-black transition duration-300 transform hover:scale-105 hover:shadow-date-gold/70">
-                    <!-- Content injected by JavaScript -->
-                </a>
-            </div>
-        </section>
+            </header>
 
-        <!-- Product Collection Slider Section -->
-        <section id="collection" class="py-20 md:py-32 max-w-full overflow-hidden bg-white">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
-                <h2 class="font-display text-4xl sm:text-5xl font-bold text-center text-date-black">
-                    Our <span class="text-date-gold">Featured</span> Selections
-                </h2>
-                <p class="text-center text-gray-600 text-lg mt-2">Swipe to explore these highly-rated favorites.</p>
+            <!-- Product Grid -->
+            <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+                <!-- Products dynamically rendered here -->
             </div>
 
-            <!-- Product Slider Container: Horizontal scrolling with scroll snapping -->
-            <div id="product-grid" class="flex overflow-x-scroll snap-x snap-mandatory pb-6 px-4 md:px-6 lg:px-8 space-x-6 md:space-x-8">
-                <!-- Content injected by JavaScript (Product Cards) -->
-            </div>
-            
-            <!-- Link to the full collection page -->
-            <div class="text-center mt-12">
-                <a href="collection.html" class="inline-block px-8 py-3 bg-date-black text-white text-lg font-bold rounded-full shadow-lg hover:bg-date-gold transition duration-300">
-                    View All Products
-                </a>
-            </div>
-        </section>
-
-        <!-- NEW: Gift Box Section (Now a Slider) -->
-        <section id="gifting" class="py-20 md:py-32 max-w-full overflow-hidden bg-date-black/5">
-            <!-- Centered Header -->
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
-                <h2 class="font-display text-4xl sm:text-5xl font-bold text-center mb-4 text-date-black">
-                    The Art of <span class="text-date-gold">Gifting</span>
-                </h2>
-                <p class="text-center text-lg sm:text-xl text-gray-700 max-w-3xl mx-auto">
-                    Elevate any occasion with a box of unparalleled quality. Curated for the connoisseur.
-                </p>
-            </div>
-
-            <!-- Gift Box Slider Container: Horizontal scrolling with scroll snapping -->
-            <div id="gift-box-grid" class="flex overflow-x-scroll snap-x snap-mandatory pb-6 px-4 md:px-6 lg:px-8 space-x-6 md:space-x-8">
-                <!-- Gift Box content dynamically injected by JS renderContent() step 5 -->
-            </div>
-
-            <!-- Link to the full gifting page -->
-            <div class="text-center mt-12">
-                <a href="gifting.html" class="inline-block px-8 py-3 bg-date-gold text-white text-lg font-bold rounded-full shadow-lg hover:bg-date-black transition duration-300">
-                    Explore Gifting Solutions
-                </a>
-            </div>
-        </section>
-
-
-        <!-- Our Story / Exclusivity Section -->
-        <section id="story" class="py-20 md:py-32 bg-date-black/10">
-            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center gap-10 lg:gap-12">
-                
-                <!-- Image Placeholder: Updated to use real URL -->
-                <div class="lg:w-1/2">
-                    <img 
-                        class="w-full h-auto rounded-xl shadow-2xl border-4 border-date-gold p-2" 
-                        src="https://t4.ftcdn.net/jpg/06/20/63/09/360_F_620630996_WpLip8bYuPVVCbkK2UVUl8gSehbtXiHd.jpg" 
-                        alt="A photo of a heritage date orchard at sunset"
-                    >
-                </div>
-
-                <!-- Text Content -->
-                <div class="lg:w-1/2 text-date-black">
-                    <p class="text-sm font-semibold uppercase tracking-widest text-date-gold mb-3">Our Heritage</p>
-                    <h2 class="font-display text-4xl sm:text-5xl font-bold mb-6">
-                        <span id="story-heading-black"><!-- Content injected by JavaScript --></span><span class="text-date-gold" id="story-heading-gold"><!-- Content injected by JavaScript --></span>
-                    </h2>
-                    <p id="story-p1" class="text-base md:text-lg mb-4 leading-relaxed">
-                        <!-- Content injected by JavaScript -->
-                    </p>
-                    <p id="story-p2" class="text-base md:text-lg mb-8 leading-relaxed font-semibold">
-                        <!-- Content injected by JavaScript -->
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Animated Feature Bar (Exciting Animation) -->
-        <div class="bg-date-gold text-date-black py-4 overflow-hidden border-t-4 border-b-4 border-date-black">
-            <div class="marquee whitespace-nowrap">
-                <!-- Scaled down text for mobile: text-xl on mobile, text-2xl otherwise -->
-                <p class="inline-block text-xl md:text-2xl font-bold uppercase tracking-widest">
-                    &star; LIMITED STOCKS &star; Hand-Picked &star; TASTE THE GOLD STANDARD &star; LIMITED STOCKS &star; Hand-Picked &star; LIMITED STOCKS &star; TASTE THE GOLD STANDARD &star;
-                </p>
-            </div>
         </div>
-
-        <!-- Contact/Sign Up Section (Now for WhatsApp) -->
-        <section id="contact" class="py-20 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="font-display text-4xl font-bold mb-4">
-                <span id="signup-heading"><!-- Content injected by JavaScript --></span>
-            </h2>
-            <p id="signup-subtitle" class="text-lg text-gray-600 mb-8">
-                <!-- Content injected by JavaScript -->
-            </p>
-            <!-- Form element for potential future submission handling, though current logic is JS-based -->
-            <form class="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
-                <input 
-                    type="tel" 
-                    id="signup-input"
-                    placeholder="" 
-                    class="flex-grow p-3 border-2 border-date-gold rounded-xl focus:ring-date-gold focus:border-date-gold text-date-black placeholder-gray-500 shadow-inner transition duration-300"
-                />
-                <button 
-                    id="signup-button" 
-                    type="submit" 
-                    class="px-8 py-3 bg-date-gold text-white font-bold rounded-xl shadow-xl shadow-date-gold/50 transition duration-300 hover:bg-date-black transform hover:scale-[1.02] active:scale-95"
-                >
-                    <!-- Content injected by JavaScript -->
-                </button>
-            </form>
-        </section>
-
     </main>
 
+    <!-- Product Details Modal (Overlay) -->
+    <div id="product-modal" class="fixed inset-0 bg-date-black/70 backdrop-blur-sm flex justify-center items-center p-4 opacity-0 invisible transition duration-300 z-50" onclick="closeProductDetails()">
+        <div id="modal-dialog" class="bg-white rounded-2xl shadow-2xl w-full max-w-5xl max-h-[90vh] overflow-y-auto p-6 md:p-10 transform scale-90 opacity-0 transition duration-300" onclick="event.stopPropagation()">
+            
+            <!-- Close Button -->
+            <button onclick="closeProductDetails()" class="absolute top-4 right-4 text-gray-500 hover:text-date-black transition" aria-label="Close Product Details">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+
+            <!-- Modal Content Injected Here -->
+            <div id="modal-content-container" class="mt-4">
+                <!-- Product details will be dynamically loaded here by JavaScript -->
+                <p class="text-center text-gray-500">Loading product details...</p>
+            </div>
+        </div>
+    </div>
+
+
     <!-- Footer -->
-    <footer class="bg-date-black text-white py-12 border-t-4 border-date-gold">
+    <footer class="bg-date-black text-white py-12 mt-auto border-t-4 border-date-gold">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
                 
                 <!-- Brand Info -->
                 <div>
                     <h3 id="footer-brand-name" class="font-display text-2xl font-bold text-date-gold mb-4"><!-- Content injected by JavaScript --></h3>
-                    <p id="footer-established" class="text-gray-400 text-sm mb-2">Distributers of the Finest Dates since ${config.brand.established_year}.</p>
+                    <p id="footer-established" class="text-gray-400 text-sm mb-2"><!-- Content injected by JavaScript --></p>
                     <p id="footer-address" class="text-gray-400 text-sm"><!-- Content injected by JavaScript --></p>
                 </div>
 
