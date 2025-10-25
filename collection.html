@@ -101,79 +101,67 @@
         // 🛒 CART LOGIC (SHARED)
         // =======================================================
 
-        /**
-         * Safely parses the cart state from storage.
-         * @returns {Object} The cart object (id: quantity).
-         */
-        function getCart() {
-            const cartString = localStorage.getItem('date_cart');
-            try {
-                return cartString ? JSON.parse(cartString) : {};
-            } catch (e) {
-                console.error("Error parsing cart data:", e);
-                return {};
-            }
-        }
-
-        /**
-         * Saves the cart state to storage.
-         * @param {Object} cart The cart object to save.
-         */
-        function saveCart(cart) {
-            localStorage.setItem('date_cart', JSON.stringify(cart));
-            updateCartCount();
-        }
-
-        /**
-         * Updates the cart count displayed in the header.
-         */
-        function updateCartCount() {
-            const cart = getCart();
-            const count = Object.values(cart).reduce((sum, quantity) => sum + quantity, 0);
-            const badge = document.getElementById('cart-badge');
-            if (badge) {
-                badge.textContent = count > 99 ? '99+' : count;
-                badge.classList.toggle('hidden', count === 0);
-            }
-        }
-
-        /**
-         * Adds an item to the cart and prevents event propagation.
-         * @param {number} id - Product ID.
-         * @param {Event} event - The click event.
-         */
-        window.addToCart = function(id, event) {
-            // Stop the click event from bubbling up to the parent element (which now opens the modal)
-            if (event) {
-                event.stopPropagation();
-                event.preventDefault();
-            }
-
-            const cart = getCart();
-            const productId = String(id);
-            cart[productId] = (cart[productId] || 0) + 1;
-            saveCart(cart);
-
-            // Give visual feedback
-            showToast(`Added 1 unit of ${getProductById(id).name} to cart!`);
-        };
+       const STORAGE_KEY = 'kajoor_cart';
         
+        function getCart() {
+            try {
+                const cartString = localStorage.getItem(STORAGE_KEY);
+                return cartString ? JSON.parse(cartString) : [];
+            } catch (e) {
+                console.error("Could not load cart from storage:", e);
+                return [];
+            }
+        }
+
+        function saveCart(cart) {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(cart));
+        }
+
+        function findProductById(id) {
+            const product = config.products.find(p => p.id === id);
+            if (!product) return null;
+            
+            // Format price string and ensure it has necessary properties
+            return {
+                id: product.id,
+                name: product.name,
+                price: product.unit_price, // Use numerical price for cart logic
+                image: product.image_url,
+                description: product.description,
+            };
+        }
+
         /**
-         * Displays a temporary success message (Toast).
-         * @param {string} message - The message to display.
+         * Adds an item to the local storage cart and redirects to the cart page.
          */
-        function showToast(message) {
-            const toast = document.getElementById('toast-message');
-            if (!toast) return;
+        function addToCart(productId, quantity = 1) {
+            let cart = getCart();
+            const productData = findProductById(productId);
 
-            toast.textContent = message;
-            toast.classList.remove('opacity-0', 'scale-95', 'hidden');
-            toast.classList.add('opacity-100', 'scale-100');
+            if (!productData) {
+                console.error("Product not found:", productId);
+                return;
+            }
 
-            setTimeout(() => {
-                toast.classList.remove('opacity-100', 'scale-100');
-                toast.classList.add('opacity-0', 'scale-95');
-            }, 3000); // Hide after 3 seconds
+            let itemIndex = cart.findIndex(item => item.id === productId);
+
+            if (itemIndex > -1) {
+                // Item exists, increase quantity
+                cart[itemIndex].quantity += quantity;
+            } else {
+                // Item is new, add it
+                cart.push({
+                    id: productId,
+                    name: productData.name,
+                    price: productData.price,
+                    image: productData.image,
+                    quantity: quantity
+                });
+            }
+            
+            saveCart(cart);
+            // Redirect to the new cart page
+            window.location.href = 'cart.html';
         }
 
         // =======================================================
